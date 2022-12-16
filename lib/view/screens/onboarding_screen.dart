@@ -43,7 +43,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 100,
           width: 50,
           child: ListView.separated(
             itemCount: pages.length,
@@ -65,8 +65,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     (route) => false,
                   );
                 },
-                style: ElevatedButton.styleFrom(primary: Colors.blue[800]),
-                child: Text("Let's Go")),
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    fixedSize: const Size(300, 50),
+                    primary: Colors.blue[800]),
+                child: const Text(
+                  "Let's Go",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                )),
           )
         ]
       ],
