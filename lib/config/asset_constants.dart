@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/model/product_model.dart';
+
 class AssetConstants {
   static const String anim_1 = 'assets/1.json';
   static const String anim_2 = 'assets/2.json';

@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/config/asset_constants.dart';
 import 'package:ecommerce_app/config/dimens.dart';
 import 'package:ecommerce_app/view/screens/home_screen.dart';
+import 'package:ecommerce_app/view/widgets/authenticate.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/animation_widget.dart';
@@ -61,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => const HomeScreen()),
+                    MaterialPageRoute(builder: (_) => Authenticate()),
                     (route) => false,
                   );
                 },
