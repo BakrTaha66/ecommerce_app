@@ -27,18 +27,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth().createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
+  // Future<void> createUserWithEmailAndPassword() async {
+  //   try {
+  //     await Auth().createUserWithEmailAndPassword(
+  //       email: emailController.text,
+  //       password: passwordController.text,
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     setState(() {
+  //       errorMessage = e.message;
+  //     });
+  //   }
+  // }
 
   signUp() {
     if (key.currentState!.validate()) {
@@ -80,9 +80,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Sign Up',
-                    style: customTextTitle(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Sign Up',
+                        style: customTextTitle(),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Create new account if you don't have",
+                        style: customText(),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 80,
@@ -140,7 +157,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.symmetric(vertical: 20),
                       decoration: BoxDecoration(
-                          color: Colors.deepOrange,
+                          color: Color(0xff03d399),
                           borderRadius: BorderRadius.circular(30)),
                       child: Text(
                         'Sign Up',

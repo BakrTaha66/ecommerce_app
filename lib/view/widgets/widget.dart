@@ -6,11 +6,8 @@ InputDecoration customTextField(String labelText) {
       labelStyle: TextStyle(
         color: Colors.black,
       ),
-      enabledBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.deepOrange),
-      ),
       focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.deepOrange),
+        borderSide: BorderSide(color: Color(0xff03d399)),
       ));
 }
 
@@ -48,14 +45,37 @@ TextStyle customTextTileEmail() {
 
 TextStyle customTextTitle() {
   return TextStyle(
-      color: Colors.deepOrange, fontSize: 32, fontWeight: FontWeight.bold);
+      color: Color(0xff03d399), fontSize: 48, fontWeight: FontWeight.bold);
+}
+
+TextStyle customTextTitleHome() {
+  return TextStyle(
+      color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold);
+}
+
+TextStyle customTextTitleProduct() {
+  return TextStyle(
+      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold);
+}
+
+TextStyle customTextTitleProductPrice() {
+  return TextStyle(
+      color: Color(0xff03d399), fontSize: 24, fontWeight: FontWeight.bold);
 }
 
 TextStyle textBtn() {
   return TextStyle(
-    color: Colors.deepOrange,
+    color: Color(0xff03d399),
     fontSize: 16,
     fontWeight: FontWeight.bold,
     decoration: TextDecoration.underline,
+  );
+}
+
+TextStyle textBtnList() {
+  return TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
   );
 }

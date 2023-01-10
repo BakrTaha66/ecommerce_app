@@ -28,29 +28,29 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool isLoading = false;
   QuerySnapshot? snapshotUserInfo;
-  SignIn() {
-    if (key.currentState!.validate()) {
-      HelperFunctions.saveUserEmailSharedPreference(emailController.text);
-      databaseMethods.getUserByUserEmail(emailController.text).then((val) {
-        snapshotUserInfo = val;
-        HelperFunctions.saveUserNameSharedPreference(
-            snapshotUserInfo!.docs[0]["name"]);
-      });
-
-      setState(() {
-        isLoading = true;
-      });
-
-      auth
-          .signInWithEmailAndPassword(
-              email: emailController.text, password: passwordController.text)
-          .then((val) {
-        HelperFunctions.saveUserLoggedInSharedPreference(true);
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => BottomNavBar()));
-      });
-    }
-  }
+  // SignIn() {
+  //   if (key.currentState!.validate()) {
+  //     HelperFunctions.saveUserEmailSharedPreference(emailController.text);
+  //     databaseMethods.getUserByUserEmail(emailController.text).then((val) {
+  //       snapshotUserInfo = val;
+  //       HelperFunctions.saveUserNameSharedPreference(
+  //           snapshotUserInfo!.docs[0]["name"]);
+  //     });
+  //
+  //     setState(() {
+  //       isLoading = true;
+  //     });
+  //
+  //     auth
+  //         .signInWithEmailAndPassword(
+  //             email: emailController.text, password: passwordController.text)
+  //         .then((val) {
+  //       HelperFunctions.saveUserLoggedInSharedPreference(true);
+  //       Navigator.pushReplacement(
+  //           context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+  //     });
+  //   }
+  // }
 
   // MongoDB NoSql
   // ModeJs
@@ -62,18 +62,18 @@ class _SignInScreenState extends State<SignInScreen> {
   // web socket / Io Socket
   // Socket
 
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      await Auth().signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
+  // Future<void> signInWithEmailAndPassword() async {
+  //   try {
+  //     await Auth().signInWithEmailAndPassword(
+  //       email: emailController.text,
+  //       password: passwordController.text,
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     setState(() {
+  //       errorMessage = e.message;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,11 +89,28 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Sign In',
-                    style: customTextTitle(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Sign In',
+                        style: customTextTitle(),
+                      ),
+                    ],
                   ),
-                  SizedBox(
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Sign In now if you have already account',
+                        style: customText(),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
                     height: 80,
                   ),
                   TextFormField(
@@ -108,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     style: customText(),
                     decoration: customTextField('Email'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -128,8 +145,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   Container(
                     alignment: Alignment.centerRight,
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                      child: Text(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 8),
+                      child: const Text(
                         'Forget Password?',
                         style: TextStyle(
                           color: Colors.black,
@@ -138,7 +156,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   GestureDetector(
                     onTap: () {
                       if (key.currentState!.validate()) {
@@ -158,9 +176,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Container(
                       alignment: Alignment.center,
                       width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20),
                       decoration: BoxDecoration(
-                          color: Colors.deepOrange,
+                          color: const Color(0xff03d399),
                           borderRadius: BorderRadius.circular(30)),
                       child: Text(
                         'Sign In',
@@ -168,7 +186,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -181,7 +199,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           widget.toggle();
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 8),
+                          padding: const EdgeInsets.symmetric(vertical: 8),
                           child: Text(
                             'SignUp',
                             style: textBtn(),

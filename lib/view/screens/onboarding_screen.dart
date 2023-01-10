@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/config/asset_constants.dart';
 import 'package:ecommerce_app/config/dimens.dart';
-import 'package:ecommerce_app/view/screens/home_screen.dart';
+import 'package:ecommerce_app/view/screens/nav_screen/home_screen.dart';
 import 'package:ecommerce_app/view/widgets/authenticate.dart';
 import 'package:flutter/material.dart';
 
@@ -17,9 +17,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController pageController = PageController();
 
   List<Widget> pages = [
-    AnimationWidget(AssetConstants.anim_1),
-    AnimationWidget(AssetConstants.anim_3),
-    AnimationWidget(AssetConstants.anim_4),
+    AnimationWidget(AssetConstants.anim_6, 'Welcome to store'),
+    AnimationWidget(AssetConstants.anim_7, 'Shipping any where'),
+    AnimationWidget(AssetConstants.anim_5, 'Make an Order right now'),
+  ];
+
+  List<Widget> texts = [
+    Text('Welcome to store'),
+    Text('Shipping any where'),
+    Text('Make an Order right now'),
   ];
 
   int index = 0;
@@ -70,7 +76,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     fixedSize: const Size(300, 50),
-                    primary: Colors.blue[800]),
+                    primary: Color(0xff03d399)),
                 child: const Text(
                   "Let's Go",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -88,8 +94,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         width: 10,
         decoration: BoxDecoration(
             color: val == index
-                ? Colors.lightBlue
-                : Colors.lightBlue.withOpacity(0.5),
+                ? Color(0xff03d399)
+                : Color(0xff03d399).withOpacity(0.5),
             shape: BoxShape.circle),
       );
 }
